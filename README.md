@@ -10,7 +10,7 @@
 |--------------------------|-----------------------------|  
 | Main Activity            | ![Main Activity](https://github.com/user-attachments/assets/5afd3036-5d57-43eb-a087-b248407c1a59)|  
 | Typing                   | ![Typing](https://github.com/user-attachments/assets/33f8ef8a-c8f5-43a6-b001-b503c6d20d66)|  
-| Answering                | ![Answering](https://github.com/user-attachments/assets/0674a86e-85e5-42dd-8ede-75537adca4e1)|
+| Giving an answer         | ![Giving an answer](https://github.com/user-attachments/assets/0674a86e-85e5-42dd-8ede-75537adca4e1)|
   
 
 ---
