@@ -1,22 +1,23 @@
-# 💬 easy-bot 
+# 💬 Easy Bot
 
-**Easy-bot** is an Android application that uses Gemini language model to answer user questions.
+**Easy Bot** is an Android application that uses Gemini language model to answer user questions.
 
 ---
 
 ## 📹 Demo
 
-  
-https://github.com/user-attachments/assets/3d325d72-60f6-4445-b3e9-210ba7818e5f
+
+https://github.com/user-attachments/assets/f66b6cf3-b63a-4939-beb2-b92a00ee7de3
+
 
 ---
 
-## 🚀 Getting Started  
+## 🚀 Getting started  
 
 ### Prerequisites  
 - [Android Studio](https://developer.android.com/studio)
 - Android SDK version 26 or higher
-- Your own generated [api key](https://aistudio.google.com/app/apikey)
+- Your own [API key](https://aistudio.google.com/app/apikey)
 
 ### Installation  
 
@@ -26,7 +27,7 @@ https://github.com/user-attachments/assets/3d325d72-60f6-4445-b3e9-210ba7818e5f
 2. **Open in Android Studio**: <br>
 Select "Open an Existing Project" and navigate to the cloned directory.
 3. **Change to your own api key**: <br>
-Navigate to app/src/main/java/com/example/easybot/Constants.kt and change "YOUR_API_KEY" to your own api key.
+Navigate to app/src/main/java/com/example/easybot/Constants.kt and replace "YOUR_API_KEY" with your own API key.
 4. **Run the app**: <br>
 Select your emulator or connected device and click "Run" button.
 
