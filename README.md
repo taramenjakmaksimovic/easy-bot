@@ -37,5 +37,4 @@ Select your emulator or connected device and click "Run" button.
 - Kotlin
 - Jetpack Compose
 - [Google AI client SDK](https://developer.android.com/ai/google-ai-client-sdk)
-
-This project was written in Android Studio.
+- [Android Studio](https://developer.android.com/studio)
