@@ -21,6 +21,10 @@ class ChatViewModel : ViewModel() {
 
     @SuppressLint("NewApi")
     fun sendMessage(question : String){
+        if (question.isBlank()) {
+            messageList.add(MessageModel("Error: Message cannot be empty.", "model"))
+            return
+        }
         viewModelScope.launch {
             try {
                 val chat = generativeModel.startChat(

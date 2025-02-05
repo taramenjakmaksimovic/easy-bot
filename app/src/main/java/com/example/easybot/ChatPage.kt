@@ -30,6 +30,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.easybot.ui.theme.ColorModelMessage
@@ -113,31 +114,52 @@ fun MessageRow(messageModel: MessageModel){
 
 
 @Composable
-fun MessageInput(onMessageSend: (String)->Unit){
+fun MessageInput(onMessageSend: (String)->Unit) {
     var message by remember {
         mutableStateOf("")
     }
-    Row (
-        modifier = Modifier.padding(8.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        OutlinedTextField(
-            modifier = Modifier.weight(1f),
-            value=message,
-            onValueChange = {
-            message=it
-        }
-        )
-        IconButton(onClick = {
-            if(message.isNotEmpty()) {
-                onMessageSend(message)
-                message = ""
+    var showError by remember {
+        mutableStateOf(false)
+    }
+    Column {
+        Row(
+            modifier = Modifier.padding(8.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            OutlinedTextField(
+                modifier = Modifier.weight(1f),
+                value = message,
+                onValueChange = {
+                    message = it
+                    showError = false
+                },
+                isError = showError
+            )
+            IconButton(onClick = {
+                if (message.isNotEmpty()) {
+                    onMessageSend(message)
+                    message = ""
+                }
+                else {
+                    showError=true
+                }
+            }) {
+                Icon(
+                    imageVector = Icons.Default.Send,
+                    contentDescription = "Send"
+                )
             }
-        }) {
-            Icon(imageVector = Icons.Default.Send,
-                contentDescription = "Send"
+        }
+        if (showError) {
+            Text(
+                text = "Message cannot be empty!",
+                color = Color.Red,
+                fontSize = 14.sp,
+                modifier = Modifier.padding(start = 12.dp, top = 4.dp),
+                fontWeight = FontWeight.W500
             )
         }
+
     }
 }
 
