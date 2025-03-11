@@ -39,6 +39,7 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.style.TextAlign
@@ -159,6 +160,7 @@ fun MessageInput(onMessageSend: (String)->Unit) {
                     showError = false
                 },
                 isError = showError,
+                textStyle = TextStyle(color = ColorModelMessage),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = ColorModelMessage,
                     unfocusedBorderColor = ColorUserMessage,
