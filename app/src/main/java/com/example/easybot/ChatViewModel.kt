@@ -17,8 +17,8 @@ class ChatViewModel : ViewModel() {
         mutableStateListOf<MessageModel>()
     }
 
-    val generativeModel : GenerativeModel = GenerativeModel(
-        modelName = "gemini-1.5-pro",
+    private val generativeModel : GenerativeModel = GenerativeModel(
+        modelName = "models/gemini-2.0-flash",
         apiKey = Constants.apiKey
     )
 
