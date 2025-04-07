@@ -25,7 +25,7 @@ https://github.com/user-attachments/assets/66df5924-1833-4c5b-bcf8-ab969e7a6695
 
 1. **Clone the Repository**:
    ```bash  
-   https://github.com/taramenjakmaksimovic/easy-bot.git
+   git clone https://github.com/taramenjakmaksimovic/easy-bot.git
 2. **Open in Android Studio**: <br>
 Select "Open an Existing Project" and navigate to the cloned directory.
 3. **Set your API key**: <br>
