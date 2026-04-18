@@ -29,7 +29,7 @@ https://github.com/user-attachments/assets/66df5924-1833-4c5b-bcf8-ab969e7a6695
 2. **Open in Android Studio**: <br>
 Select "Open an Existing Project" and navigate to the cloned directory.
 3. **Set your API key**: <br>
-Navigate to `app/src/main/java/com/example/easybot/Constants.kt` and replace `"YOUR_API_KEY"` with your own API key.
+Navigate to `app/src/main/java/com/example/easybot/util/Constants.kt` and replace `"YOUR_API_KEY"` with your own API key.
 4. **Run the app**: <br>
 Select your emulator or connected device and click "Run" button.
 
