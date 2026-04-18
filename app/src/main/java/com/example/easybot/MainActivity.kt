@@ -9,19 +9,22 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
+import com.example.easybot.data.repository.ChatRepositoryImpl
+import com.example.easybot.ui.chat.ChatPage
+import com.example.easybot.ui.chat.ChatViewModel
+import com.example.easybot.ui.chat.ChatViewModelFactory
 import com.example.easybot.ui.theme.EasyBotTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        val chatViewModel= ViewModelProvider(this)[ChatViewModel::class.java]
+
+        val repository = ChatRepositoryImpl()
+        val factory = ChatViewModelFactory(repository)
+        val viewModel = ViewModelProvider(this, factory)[ChatViewModel::class.java]
+
         setContent {
-            EasyBotTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                ChatPage(modifier = Modifier.padding(innerPadding), chatViewModel)
-                }
-            }
+            ChatPage(viewModel=viewModel)
         }
     }
 }

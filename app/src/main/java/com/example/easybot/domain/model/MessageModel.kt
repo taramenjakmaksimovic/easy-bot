@@ -1,4 +1,4 @@
-package com.example.easybot
+package com.example.easybot.domain.model
 
 data class MessageModel(
     val message : String,
