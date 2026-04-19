@@ -34,6 +34,15 @@ Navigate to `app/src/main/java/com/example/easybot/util/Constants.kt` and replac
 Select your emulator or connected device and click "Run" button.
 
 ---
+## 🏠 Architecture
+The app follows MVVM (Model-View-ViewModel) architecture:
+
+- Model: MessageModel (data representation of a chat message)
+- View: Jetpack Compose UI (ChatPage, MessageList, MessageRow, MessageInput)
+- ViewModel: ChatViewModel (manages UI state and business logic)
+- Repository: ChatRepository (abstracts data source)
+- Data source: GeminiService (communicates with Gemini API)
+---
 
 ## 👾 Technologies
 - Kotlin
