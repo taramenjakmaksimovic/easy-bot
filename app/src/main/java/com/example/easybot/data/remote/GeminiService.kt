@@ -1,14 +1,15 @@
 package com.example.easybot.data.remote
 
 import com.example.easybot.domain.model.MessageModel
+import com.example.easybot.util.AIConfig
 import com.example.easybot.util.Constants
 import com.google.ai.client.generativeai.GenerativeModel
 import com.google.ai.client.generativeai.type.content
 
 class GeminiService {
     private val generativeModel : GenerativeModel = GenerativeModel(
-        modelName = "models/gemini-2.5-flash",
-        apiKey = Constants.apiKey
+        modelName = AIConfig.MODEL_NAME,
+        apiKey = Constants.API_KEY
     )
 
     suspend fun sendMessage(
