@@ -31,7 +31,10 @@ import com.example.easybot.ui.theme.ColorModelMessage
 import com.example.easybot.ui.theme.ColorUserMessage
 
 @Composable
-fun MessageInput(onMessageSend: (String)->Unit) {
+fun MessageInput(
+    onMessageSend: (String)->Unit,
+     isSending: Boolean
+) {
     var message by remember {
         mutableStateOf("")
     }
@@ -45,6 +48,7 @@ fun MessageInput(onMessageSend: (String)->Unit) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             OutlinedTextField(
+                enabled = !isSending,
                 modifier = Modifier.weight(1f).focusRequester(focusRequester),
                 value = message,
                 onValueChange = {
@@ -82,7 +86,9 @@ fun MessageInput(onMessageSend: (String)->Unit) {
                 else {
                     showError=true
                 }
-            }) {
+            },
+                enabled = !isSending
+            ) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.Send,
                     contentDescription = "Send",

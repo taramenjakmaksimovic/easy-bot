@@ -54,8 +54,8 @@ fun ChatPage(modifier: Modifier=Modifier, viewModel: ChatViewModel){
         MessageList(modifier=Modifier.weight(1f), messageList = viewModel.messageList)
         MessageInput(
             onMessageSend = {
-                viewModel.sendMessage(it)
-            }
+                viewModel.sendMessage(it) },
+            isSending = viewModel.isSending
         )
     }
 }

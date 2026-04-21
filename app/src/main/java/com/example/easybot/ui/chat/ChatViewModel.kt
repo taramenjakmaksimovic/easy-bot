@@ -1,7 +1,10 @@
 package com.example.easybot.ui.chat
 
 import android.annotation.SuppressLint
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.easybot.domain.model.MessageModel
@@ -16,27 +19,21 @@ class ChatViewModel(
     private val repository: ChatRepository
 ) : ViewModel() {
     val messageList = mutableStateListOf<MessageModel>()
+    var isSending by mutableStateOf(false)
+
 
     @SuppressLint("NewApi")
     fun sendMessage(question : String){
-        if (question.isBlank()) {
-            messageList.add(
-                MessageModel(
-                    "Error: Message cannot be empty.",
-                    "model",
-                    getCurrentTimestamp()
-                )
-            )
-            return
-        }
+        if (question.isBlank() || isSending) return
         viewModelScope.launch {
+            isSending = true
             try {
                 messageList.add(
                     MessageModel(question, "user", getCurrentTimestamp())
                 )
-                messageList.add(MessageModel("Typing...", "model", getCurrentTimestamp()))
+               messageList.add(MessageModel("Typing...", "model", getCurrentTimestamp()))
                 val response = repository.sendMessage(messageList, question)
-                messageList.removeLast()
+               messageList.removeLast()
                 messageList.add(
                     MessageModel(response, "model", getCurrentTimestamp())
                 )
@@ -50,6 +47,8 @@ class ChatViewModel(
                         getCurrentTimestamp()
                     )
                 )
+            } finally {
+                isSending = false
             }
         }
     }
